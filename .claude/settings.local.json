@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(if \\(-not $?\\) { \"Directory is empty or new\" })",
+      "PowerShell(python -c \"import pygame; print\\('pygame', pygame.__version__, 'OK'\\)\" 2>&1)",
+      "PowerShell(py -m pip install pygame --quiet 2>&1)",
+      "PowerShell(py -c \"import pygame; print\\('pygame', pygame.__version__, 'OK'\\)\")",
+      "PowerShell(py -c \"import ast; ast.parse\\(open\\('c:/Users/ahadi/game/game.py'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")",
+      "PowerShell(py -c \"import ast; ast.parse\\(open\\('c:/Users/ahadi/game/game.py', encoding='utf-8'\\).read\\(\\)\\); print\\('Syntax OK'\\)\")",
+      "PowerShell(Start-Process -FilePath \"py\" -ArgumentList \"c:/Users/ahadi/game/game.py\" -NoNewWindow)",
+      "PowerShell(Start-Process -FilePath \"py\" -ArgumentList \"c:/Users/ahadi/game/game.py\")",
+      "PowerShell(py -c \"import ast; ast.parse\\(open\\('c:/Users/ahadi/game/game.py', encoding='utf-8'\\).read\\(\\)\\); print\\('OK'\\)\")",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\ahadi\\\\game\" -Recurse | Where-Object { $_.Extension -match \"\\\\.\\(png|jpg|jpeg|gif|bmp|svg|webp\\)$\" })"
+    ]
+  }
+}
