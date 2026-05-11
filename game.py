@@ -5,14 +5,14 @@ import os
 
 pygame.init()
 
-# ── Window ───────────────────────────────────────────────────────────────────
+# Window 
 screen   = pygame.display.set_mode((900, 640), pygame.RESIZABLE)
 pygame.display.set_caption("River Crossing Puzzle  –  Lion · Goat · Grass")
 clock    = pygame.time.Clock()
 FPS      = 60
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# ── Colors ────────────────────────────────────────────────────────────────────
+#  Colors 
 SKY      = (110, 185, 235)
 BANK_GR  = (55,  150,  55)
 BANK_DK  = (35,  105,  35)
@@ -27,10 +27,10 @@ BTN_BLUE = ( 30, 110, 200)
 BTN_ORG  = (160,  90,  30)
 BTN_RED  = (140,  30,  30)
 
-# ── Entities ──────────────────────────────────────────────────────────────────
+#  Entities 
 ALL = ["Lion", "Goat", "Grass"]
 
-# ── Image loading & cache ─────────────────────────────────────────────────────
+#  Image loading & cache 
 def _load(filename):
     return pygame.image.load(os.path.join(BASE_DIR, filename)).convert_alpha()
 
@@ -58,7 +58,7 @@ def get_boat_imgs(size):
         _CACHE[rkey] = pygame.transform.flip(_CACHE[lkey], True, False)
     return _CACHE[lkey], _CACHE[rkey]
 
-# ── Fonts ─────────────────────────────────────────────────────────────────────
+# ── Fonts ───
 def _font(name, size, bold=False):
     try:
         return pygame.font.SysFont(name, size, bold=bold)
@@ -70,7 +70,7 @@ FT_MD = _font("Arial", 21)
 FT_SM = _font("Arial", 17)
 FT_XS = _font("Arial", 14)
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# ── Helpers ─
 def ease(t):
     return t * t * (3 - 2 * t)
 
@@ -111,7 +111,7 @@ def draw_entity(surf, entity, cx, cy, active, img_size):
     # Clickable rect covers image + label
     return pygame.Rect(cx - iw // 2, cy - ih // 2, iw, ih + 22)
 
-# ── Game state ────────────────────────────────────────────────────────────────
+# ── Game state ───
 class G:
     def __init__(self):
         self.reset()
@@ -219,7 +219,7 @@ class G:
         return self.animating and self.anim_dir == "left"
 
 
-# ── Scene rendering ───────────────────────────────────────────────────────────
+# ── Scene rendering ──────
 def draw(surf, g):
     SW, SH = surf.get_size()
 
@@ -295,7 +295,7 @@ def draw(surf, g):
 
     g.e_rects = e_rects
 
-    # ── HUD panel ─────────────────────────────────────────────────────────────
+    #  HUD panel 
     pygame.draw.rect(surf, PANEL_BG, (0, hud_y, SW, hud_h))
     pygame.draw.line(surf, (55, 55, 100), (0, hud_y), (SW, hud_y), 2)
 
@@ -342,7 +342,7 @@ def draw(surf, g):
                  FT_SM, (180, 180, 180), SW // 2, SH // 2 + 48)
 
 
-# ── Main loop ─────────────────────────────────────────────────────────────────
+#  Main loop ─
 def main():
     g = G()
     running = True
