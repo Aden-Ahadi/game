@@ -58,7 +58,7 @@ def get_boat_imgs(size):
         _CACHE[rkey] = pygame.transform.flip(_CACHE[lkey], True, False)
     return _CACHE[lkey], _CACHE[rkey]
 
-# ── Fonts ───
+#  Fonts 
 def _font(name, size, bold=False):
     try:
         return pygame.font.SysFont(name, size, bold=bold)
@@ -70,7 +70,7 @@ FT_MD = _font("Arial", 21)
 FT_SM = _font("Arial", 17)
 FT_XS = _font("Arial", 14)
 
-# ── Helpers ─
+#  Helpers 
 def ease(t):
     return t * t * (3 - 2 * t)
 
@@ -111,7 +111,7 @@ def draw_entity(surf, entity, cx, cy, active, img_size):
     # Clickable rect covers image + label
     return pygame.Rect(cx - iw // 2, cy - ih // 2, iw, ih + 22)
 
-# ── Game state ───
+#  Game state 
 class G:
     def __init__(self):
         self.reset()
@@ -219,7 +219,7 @@ class G:
         return self.animating and self.anim_dir == "left"
 
 
-# ── Scene rendering ──────
+#  Scene rendering 
 def draw(surf, g):
     SW, SH = surf.get_size()
 
